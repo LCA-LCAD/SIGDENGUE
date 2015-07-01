@@ -1,0 +1,44 @@
+@(suspeitos: List[Suspeito])
+
+@main("Lista de Suspeitos") {
+	@if(suspeitos.isEmpty){
+		<h3>Não há suspeitos cadastrados</h3>
+	}else{
+		<legend>Suspeitos Cadastrados:</legend>
+		<table>
+			<tr>
+				<th>nº da Busca</th>
+				<th>nº da Notificação</th>
+				<th>Data da Notificação</th>
+				<th>Nome do Suspeito</th>
+				<th>Nome da Mãe</th>
+				<th>Telefone 1</th>
+				<th>Telefone 2</th>
+				<th>Data de Nascimento</th>
+				<th> Sim, já teve Dengue.</th>
+				<th> Proveniente de outro Municipio?</th>
+				<th>Qual?</th>
+				<th>Viajante (Viaja com Frequencia)</th>
+			</tr>
+			@for(suspeito <- suspeitos){
+				<tr>
+					<td>@suspeito.getNumeroBusca</td>
+					<td>@suspeito.getNumeroNotificacao</td>
+					<td>@suspeito.getDataNotificacao</td>
+					<td>@suspeito.getNomeSuspeito</td>
+					<td>@suspeito.getNomeMae</td>
+					<td>@suspeito.getTelefone1</td>
+					<td>@suspeito.getTelefone2</td>
+					<td>@suspeito.getDataNascimento</td>
+					<td>@suspeito.isTeveDengue</td>
+					<td>@suspeito.isOutroMunipio</td>
+					<td>@suspeito.getNomeOutroMunicipio</td>
+					<td>@suspeito.isViajante</td>
+				</tr>
+			}
+		</table>
+	}
+	<hr>
+	<a href="@routes.Application.CadastrarSuspeito()">Novo Suspeito</a>
+
+}

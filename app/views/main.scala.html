@@ -1,0 +1,114 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/style.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap-responsive.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/addrow.css")">
+        <script src="@routes.Assets.at("javascripts/funcoes-mascaras.js")" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div align="center" class="header-img">
+                    <img src="../assets/SIGDENGUE_web.png">
+                </div>
+                <!-- INÍCIO DA BARRA DE NAVEGAÇÃO-->
+                <nav class="row">
+                    <ul class="nav nav-tabs">
+                        <li><a href="#">Início</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Suspeito<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Cadastrar</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Listar</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agentes<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agentes</a>
+                                        <ul>
+                                            <li><a href="#">Cadastrar</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Listar</a></li>
+                                        </ul>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a href="#">Cargos</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Equipes</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Disp. Móveis</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Cursos</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Atividades<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Raio</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Bloqueio</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Ponto Estratégico</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">RG</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">LiraA</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Ação/Mutirão</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Tratamento Especial</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Tratamento</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"><a href="#">Entomologia</a></li>
+                        <li class="divider"><a href="#">SisPNCD</a></li>
+                        <li class="divider"><a href="#">Produtividade</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Visualização<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Relatórios</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Mapas</a></li>
+                            </ul>
+                        </li>
+                        <li class="divider"><a href="#">Configuração</a></li>
+                        <li class="divider"><a href="#">Disp Móveis</a></li>
+                        <li class="divider"><a href="#">Inf. Pessoal</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- FIM DA BARRA DE NAVEGAÇÃO-->
+            <article class="paginas-gerais">
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            @content
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+        </div>
+
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/jquery-1.11.0.js")" type="text/javascript"></script>
+    </body>
+</html>
