@@ -1,6 +1,19 @@
-@(suspeitos: List[Suspeito])
+@(suspeitos: List[Suspeito], enderecos: List[Endereco])
 
 @main("Lista de Suspeitos") {
+	<div class="form-group">
+		<div class="row">
+			<label class="col-sm-3 control-label" for="Selecione o numero de busca do suspeito:">Tipo do Endereço: </label>
+			<div class="col-sm-9">
+				<select class="form-control col-sm-9" name="tipo" id="tipo">
+					<option>Selecione</option>
+					@for(suspeito <- suspeitos) {
+						<option value=@suspeito.getNumeroBusca>@suspeito.getNumeroBusca</option>
+					}
+				</select>
+			</div>
+		</div>
+	</div>
 	@if(suspeitos.isEmpty){
 		<h3>Não há suspeitos cadastrados</h3>
 	}else{

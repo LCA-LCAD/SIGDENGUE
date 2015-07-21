@@ -2,6 +2,7 @@ package controllers;
 
 import com.avaje.ebean.Ebean;
 import models.CupomDesconto;
+import models.Endereco;
 import models.Suspeito;
 import play.*;
 import play.data.Form;
@@ -14,7 +15,13 @@ public class Application extends Controller {
 
     public static Result index(){
         List<Suspeito> suspeitos = Ebean.createQuery(Suspeito.class).findList();
-        return ok(index.render(suspeitos));
+        List<Endereco> enderecos = Ebean.createQuery(Endereco.class).findList();
+        return ok(index.render(suspeitos, enderecos));
+    }
+
+    public static Result ListaEndereco(){
+        List<Endereco> enderecos = Ebean.createQuery(Endereco.class).findList();
+        return ok(ListaEndereco.render(enderecos));
     }
 
     public static Result formularioNovoCupom(){
@@ -33,31 +40,46 @@ public class Application extends Controller {
     }
 
     public static Result CadastrarSuspeito() {
-        Form<Suspeito> form = Form.form(Suspeito.class);
-        return ok(CadastrarSuspeito.render(form));
+        Form<Suspeito> formSuspeito = Form.form(Suspeito.class);
+        Form<Endereco> formEndSuspeito = Form.form(Endereco.class);
+        return ok(CadastrarSuspeito.render(formSuspeito, formEndSuspeito));
+    }
+
+    public static Result CadastrarEndSuspeito() {
+        Form<Endereco> formEndereco = Form.form(Endereco.class);
+        List<Suspeito> suspeitos = Ebean.createQuery(Suspeito.class).findList();
+        return ok(CadastrarEndSuspeito.render(formEndereco, suspeitos));
     }
 
     public static Result novoSuspeito() {
-        Form<Suspeito> form = Form.form(Suspeito.class).bindFromRequest();
+        Form<Suspeito> formSuspeito = Form.form(Suspeito.class).bindFromRequest();
+        Form<Endereco> formEndSuspeito = Form.form(Endereco.class).bindFromRequest();
+        System.out.println(formSuspeito);
+        System.out.println(formEndSuspeito);
+        if (formSuspeito.hasErrors() && formEndSuspeito.hasErrors()) {
+            return badRequest(CadastrarSuspeito.render(formSuspeito, formEndSuspeito));
+        }
+        Suspeito suspeito = formSuspeito.get();
+        Endereco endereco = formEndSuspeito.get();
+        suspeito.save();
+        endereco.save();
+        List<Suspeito> suspeitos = Ebean.createQuery(Suspeito.class).findList();
+        List<Endereco> enderecos = Ebean.createQuery(Endereco.class).findList();
+        return ok(index.render(suspeitos, enderecos));
+    }
+
+    public static Result novoEndSuspeito() {
+        List<Suspeito> suspeitos = Ebean.createQuery(Suspeito.class).findList();
+        Form<Endereco> form = Form.form(Endereco.class).bindFromRequest();
+        System.out.println(form);
         if (form.hasErrors()) {
-            return badRequest(CadastrarSuspeito.render(form));
+            return badRequest(CadastrarEndSuspeito.render(form, suspeitos));
         }
-        Suspeito suspeito = form.get();
-        suspeito.save();
-        return redirect(routes.Application.index());
+        Endereco endereco = form.get();
+        endereco.save();
+        List<Endereco> enderecos = Ebean.createQuery(Endereco.class).findList();
+        return ok(ListaEndereco.render(enderecos));
     }
-    /*public static Result CadastrarSuspeito(){
-        Form<Suspeito> form = Form.form(Suspeito.class);
-        return ok(CadastrarSuspeito.render(form));
-    }
-    public static Result novoSuspeito(){
-        Form<Suspeito> form = Form.form(Suspeito.class).bindFromRequest();
-        if(form.hasErrors()){
-            return badRequest(CadastrarSuspeito.render(form));
-        }
-        Suspeito suspeito = form.get();
-        suspeito.save();
-        return redirect(routes.Application.index());
-    }*/
+
 
 }

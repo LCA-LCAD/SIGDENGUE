@@ -1,14 +1,18 @@
 package models;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import play.data.validation.Constraints;
 import play.db.ebean.Model;
 //import sispncd.DadosGeraisUBV;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+
 
 @Entity
 public class Suspeito extends Model{
+    @Id
     private int numeroBusca; //Chave
     private int numeroNotificacao;
     private Date dataNotificacao;
@@ -23,13 +27,24 @@ public class Suspeito extends Model{
     private boolean viajante; //Identifica se o suspeito viaja com frequência
     private boolean viagemRecente; //Identifica se o suspeito viajou recentemente
     private boolean realizouExame; //Exame laboratorial foi ou não realizado
-    private ArrayList<Endereco> enderecos;
+    /*@OneToMany(mappedBy = "suspeito")
+    private List<Endereco> enderecos = new ArrayList<>();*/
     private ArrayList<Viagem> viagens;
     private AtendimentoClinico dadosClinicos;
     private BuscaAtiva buscaAtiva;
     private Encerramento encerramento;
     private ArrayList<ExameLaboratorial> examesLaboratorial;
     private Sintomas sintomas;
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Endereco> enderecos;
+
+    public List<Endereco> getEnderecos(){
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos){
+        this.enderecos = enderecos;
+    }
 
     public Suspeito(){
         enderecos = new ArrayList<Endereco>();
@@ -40,6 +55,7 @@ public class Suspeito extends Model{
     public int getNumeroBusca() {
         return numeroBusca;
     }
+
     public void setNumeroBusca(int numeroBusca) {
         this.numeroBusca = numeroBusca;
     }
@@ -121,12 +137,12 @@ public class Suspeito extends Model{
     public void setRealizouExame(boolean realizouExame) {
         this.realizouExame = realizouExame;
     }
-    public ArrayList<Endereco> getEnderecos() {
+    /*public List<Endereco> getEnderecos() {
         return enderecos;
     }
-    public void setEnderecos(ArrayList<Endereco> enderecos) {
+    public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
-    }
+    }*/
 
     public AtendimentoClinico getDadosClinicos() {
         return dadosClinicos;
