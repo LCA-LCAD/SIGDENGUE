@@ -11,7 +11,7 @@ public class Sintomas {
     private Date dataPrimeirosSintomas;
     private ArrayList<Sintoma> sintomas;
     private ArrayList<Sangramento> sangramentos;
-    private ArrayList<Sintoma> sistemasPersistentes;
+    private ArrayList<Sintoma> sintomasPersistentes;
     private boolean utilizaMedicamento; //Utilização de medicamento rotineiro
     private String medicamentosRotina; //Medicamentos utilizados rotineiramente
     private boolean usouMedicamento; //Utilizou medicamentos relacionados a Dengue
@@ -21,7 +21,7 @@ public class Sintomas {
     public Sintomas(){
         sintomas = new ArrayList<Sintoma>();
         sangramentos = new ArrayList<Sangramento>();
-        sistemasPersistentes = new ArrayList<Sintoma>();
+        sintomasPersistentes = new ArrayList<Sintoma>();
     }
 
     public int getId() {
@@ -43,10 +43,10 @@ public class Sintomas {
         this.sintomas = sintomas;
     }
     public ArrayList<Sintoma> getSistemasPersistem() {
-        return sistemasPersistentes;
+        return sintomasPersistentes;
     }
-    public void setSistemasPersistem(ArrayList<Sintoma> sistemasPersistem) {
-        this.sistemasPersistentes = sistemasPersistem;
+    public void setSintomasPersistem(ArrayList<Sintoma> sintomasPersistem) {
+        this.sintomasPersistentes = sintomasPersistem;
     }
     public ArrayList<Sangramento> getSangramentos() {
         return sangramentos;

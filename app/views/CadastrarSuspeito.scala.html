@@ -7,15 +7,14 @@
         <div class="panel with-nav-tabs panel-default">
             <div class="panel-heading">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab2default" data-toggle="tab">Suspeito</a></li>
-                    <li><a href="#tab3default" data-toggle="tab">Endereço</a></li>
-                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Viagens</a></li>
-                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Atend. Clinico</a></li>
-                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Sintomas</a></li>
-                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">
-                        Dados Laboratoriais</a></li>
-                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Busca Ativa</a></li>
-                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Encerramento</a></li>
+                    <li class="active"><a href="#tab1default" data-toggle="tab">Suspeito</a></li>
+                    <li><a href="#tab2default" data-toggle="tab">Endereços</a></li>
+                    <li><a href="#tab3default" data-toggle="tab">Viagens</a></li>
+                    <li><a href="#tab4default" data-toggle="tab">Atend. Clinico</a></li>
+                    <li><a href="#tab5default" data-toggle="tab">Sintomas</a></li>
+                    <li><a href="#tab6default" data-toggle="tab">Dados Laboratoriais</a></li>
+                    <li><a href="#tab7default" data-toggle="tab">Busca Ativa</a></li>
+                    <li><a href="#tab8default" data-toggle="tab">Encerramento</a></li>
                 </ul>
             </div>
             <div class="panel-body">
@@ -25,7 +24,8 @@
                         <legend>Dados do Suspeito</legend>
                         <div class="form-group">
                             <div class="row">
-                                <label class="col-sm-3 control-label" for="numeroBusca" required="required">nº da Busca: </label>
+                                <label class="col-sm-3 control-label" for="numeroBusca" required="required">
+                                    nº da Busca: </label>
                                 <div class="col-sm-3">
                                     <input type="number" class="form-control" required="required" name="numeroBusca" id="numeroBusca" placeholder=""/>
                                 </div>
@@ -99,22 +99,702 @@
                         <div class="col-sm-12">
                             <input id="viajante" name="viajante" type="checkbox"> <b>Viajante (Viaja com Frequencia)</b>
                         </div>
-                        <div class="col-sm-12" align="center">
+                        <div align="center">
                             <div class="btn-group" role="group" aria-label="...">
-                                <button type="button" class="btn btn-default">< Anterior</button>
-                                <button type="submit" class=" btn btn-default"><a href="@routes.Application.CadastrarEndSuspeito()">Endereços</a></button>
-
+                                <button type="button" class="btn btn-default glyphicon glyphicon-thumbs-up">
+                                    Salvar e Avançar</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-floppy-saved">
+                                    Salvar e Finalizar</button>
                             </div>
                         </div>
-                    </div>
+                    </div><!-- fecha dados suspeito -->
+                    <!-- Cadastrar Endereços do Suspeito-->
                     <div class="tab-pane fade in active" id="tab2default">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12" align="center">
-            <input class="btn btn-default" type="submit" value="Salvar">
-        </div>
-    }
+                        <legend>Cadastrar Endereços para o Suspeito de Dengue</legend>
+                        <label class="col-sm-1">Tipo: </label>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input type="checkbox" id="Sintoma01"> <b>Residencia</b>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" id="Sintoma02"> <b>Trabalho</b>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" id="Sintoma03"> <b>Estudo</b>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" id="Sintoma03"> <b>Lazer</b>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="checkbox" id="Sintoma03"> <b>Outro</b>
+                            </div>
+                        </div>
+                        <legend></legend>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="numero">Logradouro: </label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" required="required" name="logradouro" id="logradouro" placeholder=""/>
+                                </div>
+                                <label class="col-sm-3 control-label" for="numero">Número: </label>
+                                <div class="col-sm-3">
+                                    <div class="input-group custom-search-form">
+                                        <input type="number" class="form-control" name="numero" id="numero">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <b>Georreferenciamento Incosistente</b>
+                                    <input class="col-sm-2" type="checkbox" id="geoInconsistente">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <b>Endereço está localizado numa esquina</b>
+                                    <input class="col-sm-2" type="checkbox" id="geoInconsistente">
+                                </div>
+                                <div class="col-sm-6">
+                                    <b>Mais de uma edificação no lote</b>
+                                    <input class="col-sm-2" type="checkbox" id="geoInconsistente">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="numeroQuarteirao">
+                                    nº do Quarteirão: </label>
+                                <div class="col-sm-3">
+                                    <input type="number" class="form-control" name="numeroQuarteirao" id="numeroQuarteirao" placeholder=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="nomeOutroMunicipio">nº do Quarteirão: </label>
+                                <div class="col-sm-3">
+                                    <select class="form-control" id="nomeOutroMunicipio" name="nomeOutroMunicipio">
+                                        <option>Seleciona o nº do Quarteirão</option>
+                                        <option>MARECHAL CÂNDIDO RONDON</option>
+                                        <option>TOLEDO</option>
+                                        <option>MARINGÁ</option>
+                                        <option>ROLANDIA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="nomeOutroMunicipio">Localidade: </label>
+                                <div class="col-sm-3">
+                                    <select class="form-control" id="nomeOutroMunicipio" name="nomeOutroMunicipio">
+                                        <option>Selecione a Localidade</option>
+                                        <option>MARECHAL CÂNDIDO RONDON</option>
+                                        <option>TOLEDO</option>
+                                        <option>MARINGÁ</option>
+                                        <option>ROLANDIA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="nomeOutroMunicipio">Loteamento: </label>
+                            </div>
+                            </br>
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="nomeOutroMunicipio">Quadra: </label>
+                            </div>
+                            </br>
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="nomeOutroMunicipio">Lote: </label>
+                            </div>
+                        </div>
+                        <!-- Somente para endereço residencial (criar um jscript para identificar este caso)-->
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="nomeOutroMunicipio">Unidade de Saúde: </label>
+                                <div class="col-sm-3">
+                                    <select class="form-control" id="nomeOutroMunicipio" name="nomeOutroMunicipio">
+                                        <option>Selecione a Unidade de Saúde</option>
+                                        <option>MARECHAL CÂNDIDO RONDON</option>
+                                        <option>TOLEDO</option>
+                                        <option>MARINGÁ</option>
+                                        <option>ROLANDIA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="tempoPermanencia">
+                                    Tempo de Permanência: </label>
+                                <div class="col-sm-3">
+                                    <input type="time" class="form-control" name="tempoPermanencia" id="tempoPermanencia" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <legend>Selecione o(s) dia(s) que se encontra neste endereço: </legend>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Segunda" class="diasSemana"> <b>Segunda-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Terça" class="diasSemana"> <b>Terça-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Quarta" class="diasSemana"> <b>Quarta-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Quinta" class="diasSemana"> <b>Quinta-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Sexta" class="diasSemana"> <b>Sexta-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Sábado" class="diasSemana"> <b>Sábado</b>
+                            </div>
+                            <div>
+                                <div class="col-sm-12">
+                                    <input type="checkbox" name="Domingo" class="diasSemana"> <b>Domingo</b>
+                                </div>
+                            </div>
+                            <legend>Selecione o(s) turno(s) que se encontra neste endereço: </legend>
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="Manhã" class="Turnos"> <b>Manhã</b>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="Tarde" class="Turnos"> <b>Tarde</b>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="Noite" class="Turnos"> <b>Noite</b>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="Madrugada" class="Turnos"> <b>Madrugada</b>
+                                </div>
+                            </div>
+                            <div align="center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-default glyphicon glyphicon-hand-left">
+                                        Voltar para Suspeito</button>
+                                    <button type="submit" class="btn btn-default glyphicon glyphicon-plus">
+                                        Salvar e Cadastrar Novo Endereço </button>
+                                    <button type="button" class="btn btn-default glyphicon glyphicon-thumbs-up">
+                                        Salvar e Avançar</button>
+                                    <button type="button" class="btn btn-default glyphicon glyphicon-floppy-saved">
+                                        Salvar e Finalizar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- fecha endereços-->
+                    <!-- Viagens -->
+                    <div class="tab-pane fade" id="tab3default">
+                        <legend>Viagens</legend>
+                        <div class="form-group">
+                            <div class="col-xs-8">
+                                <input id="add_row1" type="checkbox" id="Sintoma01"> <b>Realizou viagem recentemente</b>
+                            </div>
+                        </div>
+                        <legend>Inserir viagens</legend>
+                        <div class="row clearfix">
+                            <div class="col-md-12 table-responsive">
+                                <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+                                    <thead>
+                                        <tr >
+                                            <th class="text-center">
+                                                País
+                                            </th>
+                                            <th class="text-center">
+                                                Estado
+                                            </th>
+                                            <th class="text-center">
+                                                Municipio
+                                            </th>
+                                            <th class="text-center">
+                                                Data de Ida
+                                            </th>
+                                            <th class="text-center">
+                                                Data de Retorno
+                                            </th>
+                                            <th class="text-center">
+                                                Deletar
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id='addr0' data-id="0" class="hidden">
+                                            <td data-name="pais">
+                                                <select name="pais0" class="form-control">
+                                                    <option value"">Selecionar</option>
+                                                    <option value"1">Positivo</option>
+                                                    <option value"2">Negativo</option>
+                                                </select>
+                                            </td>
+                                            <td data-name="estado">
+                                                <select name="estado0" class="form-control">
+                                                    <option value"">Selecionar</option>
+                                                    <option value"1">Positivo</option>
+                                                    <option value"2">Negativo</option>
+                                                </select>
+                                            </td>
+                                            <td data-name="municipio">
+                                                <select name="municipio0" class="form-control">
+                                                    <option value"">Selecionar</option>
+                                                    <option value"1">Positivo</option>
+                                                    <option value"2">Negativo</option>
+                                                </select>
+                                            </td>
+                                            <td data-name="data-ida">
+                                                <input type="date" name='data-ida0' placeholder='' class="form-control"/>
+                                            </td>
+                                            <td data-name="data-retorno">
+                                                <input type="date" name='data-retorno0' placeholder='' class="form-control"/>
+                                            </td>
+                                            <td data-name="del">
+                                                <button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a id="add_row" class="btn btn-default pull-right">Adicionar Viagem</a>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default glyphicon glyphicon-hand-left">
+                                    Voltar para Endereços</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-thumbs-up">
+                                    Salvar e Avançar</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-floppy-saved">
+                                    Salvar e Finalizar</button>
+                            </div>
+                        </div>
+                    </div><!-- fecha viagens-->
+                    <!-- Abre Atendimento Clinico-->
+                    <div class="tab-pane fade" id="tab4default">
+                        <legend>Atendimento Clinico</legend>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="NomeMaeSus">Local de Atendimento: </label>
+                                <div class="col-sm-3">
+                                    <select class="form-control col-sm-2" name="EndResLoc" id="EndResLoc">
+                                        <option>Selecione</option>
+                                        <option value="01">E-Esquerda</option>
+                                        <option value="01">C-Central</option>
+                                        <option value="01">D-Direta</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="outroMunicipio" name="outroMunicipio" type="checkbox"><b>
+                                    Outro: </b>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" name="NomeSusp" pattern="[a-z\s]+$" id="NomeSusp" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="NomeSusp">Notificado por: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="NomeSusp" pattern="[a-z\s]+$" id="NomeSusp" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="NomeMae">Médico(a)/Enfermeiro(a): </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="NomeMae" pattern="[a-z\s]+$" id="NomeMae" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default glyphicon glyphicon-hand-left">
+                                    Voltar para Viagens</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-thumbs-up">
+                                    Salvar e Avançar</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-floppy-saved">
+                                    Salvar e Finalizar</button>
+                            </div>
+                        </div>
+                    </div><!-- fecha atendimento clinico-->
+                    <!-- Sintomas -->
+                    <div class="tab-pane fade" id="tab5default">
+                        <legend>Sintomas</legend>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="NomeSuspeito">Data dos Primeiros Sintomas: </label>
+                                <div class="col-sm-6">
+                                    <input type="date" class="form-control" name="NomeSuspeito" id="NomeSuspeito" placeholder="" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="NomeSuspeito">Semana Epidemiológica: </label>
+                                <div class="col-sm-6">
+                                    <input type="date" class="form-control" name="NomeSuspeito" id="NomeSuspeito" placeholder="" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <legend>Sintomas Apresentados</legend>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma01"> <b>Febre Alta</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma02"> <b>Dor de Cabeça</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma03"> <b>Dor no Fundo dos Olhos</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma04"> <b>Dor Abdominal</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma05"> <b>Dor Lombar</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma06"> <b>Dor Muscular</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma04"> <b>Dor na Nuca</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma05"> <b>Dor nas Articulações</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma06"> <b>Calafrios/Sudorese</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma07"> <b>Boca Seca</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma08"> <b>Nauseas/Enjoo</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma09"> <b>Vomito</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma10"> <b>Diarréia</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma11"> <b>Fraqueza</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma12"> <b>Mal Estar</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma13"> <b>Falta de Apetite</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma14"> <b>Emagrecimento</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma15"> <b>Cansaço Excessivo</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma16"> <b>Manchas Avermelhadas</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma17"> <b>Prurido/Coceira</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma18"> <b>Edema</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma16"> <b>Formigamento</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sintoma17"> <b>Outros</b>
+                            </div>
+                        </div>
+                        </br>
+                        <legend>Sangramentos</legend>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sangramento01"> <b>Gengiva</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sangramento02"> <b>Nariz</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sangramento03"> <b>Fezes</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sangramento04"> <b>Urina</b>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" id="Sangramento05"> <b>Alteração no Fluxo Menstrual</b>
+                            </div>
+                        </div>
+                        </br>
+                        <legend></legend>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="NomeSuspeito">Sintomas Persistentes Hoje: </label>
+                                <div class="col-xs-6">
+                                    <textarea class="form-control counted" name="DHistorico" placeholder="" rows="5" style="margin-bottom : 10 px ;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <input type="checkbox" id="Sintoma17"> <b>
+                                    Sim, utiliza algum medicamento(rotineiro), Quais?:</b>
+                                </div>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control counted" name="DHistorico" placeholder="" rows="5" style="margin-bottom : 10 px ;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <input type="checkbox" id="Sintoma17"> <b>Sim, fez uso de medicamentos, Quais?:</b>
+                                </div>
+                                <div class="col-sm-6">
+                                    <textarea class="form-control counted" name="DHistorico" placeholder="" rows="5" style="margin-bottom : 10 px ;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <input type="checkbox" id="Sintoma17"> <b>Sim, vacinado contra febre amarela.</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default glyphicon glyphicon-hand-left">
+                                    Voltar para Atendimento Clinico</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-thumbs-up">
+                                    Salvar e Avançar</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-floppy-saved">
+                                    Salvar e Finalizar</button>
+                            </div>
+                        </div>
+                    </div><!-- fecha sintomas-->
+                    <!-- Abre Dados Laboratoriais-->
+                    <div class="tab-pane fade" id="tab6default">
+                        <legend>Dados Laboratoriais</legend>
+                        <div class="form-group">
+                            <div class="col-sm-8">
+                                <input id="add_row1" type="checkbox" id="Sintoma01"> <b>Realizou exame</b>
+                            </div>
+                        </div>
+                        <legend>Exames</legend>
+                        <div class="row clearfix">
+                            <div class="col-md-12 table-responsive">
+                                <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+                                    <thead>
+                                        <tr >
+                                            <th class="text-center">
+                                                Laboratório
+                                            </th>
+                                            <th class="text-center">
+                                                Data da Coleta
+                                            </th>
+                                            <th class="text-center">
+                                                Resultado
+                                            </th>
+                                            <th class="text-center">
+                                                Deletar
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id='addr0' data-id="0" class="hidden">
+                                            <td data-name="Nome-lab">
+                                                <input type="text" name='Nome-lab0' placeholder='Insira o laboratório que realizou a consulta' class="form-control"/>
+                                            </td>
+                                            <td data-name="data-exame">
+                                                <input type="date" name='data-exame0' placeholder='' class="form-control"/>
+                                            </td>
+                                            <td data-name="sel0">
+                                                <select name="sel0" class="form-control">
+                                                    <option value"">Selecionar</option>
+                                                    <option value"1">Positivo</option>
+                                                    <option value"2">Negativo</option>
+                                                </select>
+                                            </td>
+                                            <td data-name="del">
+                                                <button name="del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a id="add_row" class="btn btn-default pull-right">Adicionar Exame</a>
+                            </div>
+                        </div>
+                        <div align="center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default glyphicon glyphicon-hand-left">
+                                    Voltar para Sintomas</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-thumbs-up">
+                                    Salvar e Avançar</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-floppy-saved">
+                                    Salvar e Finalizar</button>
+                            </div>
+                        </div>
+                    </div><!-- fecha dados laboratoriais-->
+                    <!-- Busca Ativa -->
+                    <div class="tab-pane fade" id="tab7default">
+                                <legend>Visita ou Ligação para Contato</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <div class="row">
+                                        <label class="col-sm-3 control-label" for="NBuscaSuspeito">Data da Busca: </label>
+                                        <div class="col-sm-4">
+                                            <input type="date" class="form-control" autofocus="autofocus" name="NBuscaSuspeito" id="NBuscaSuspeito" placeholder="" required="required">
+                                        </div>
+                                        <label class="col-sm-3 control-label" for="AnoSuspeito">Horário: </label>
+                                        <div class="col-sm-2">
+                                            <input type="time" min="2010" max="2100"  class="form-control" name="AnoSuspeito" id="AnoSuspeito" placeholder="" required="required">
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                        <label class="col-sm-3 control-label" for="NomeSusp">Atendido por: </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="NomeSusp" pattern="[a-z\s]+$" id="NomeSusp" placeholder="">
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                        <label class="col-sm-3 control-label" for="NomeSusp">Observações: </label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control counted" name="DHistorico" placeholder="" rows="5" style="margin-bottom:10px;"></textarea>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                        <label class="col-sm-3 control-label" for="NomeMaeSus">Agente Responsavel: </label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control col-sm-2" name="EndResLoc" id="EndResLoc">
+                                                <option>Selecione</option>
+                                                <option value="01">E-Esquerda</option>
+                                                <option value="01">C-Central</option>
+                                                <option value="01">D-Direta</option>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div align="center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default glyphicon glyphicon-hand-left">
+                                    Voltar para Dados Laboratoriais</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-thumbs-up">
+                                    Salvar e Avançar</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-floppy-saved">
+                                    Salvar e Finalizar</button>
+                            </div>
+                        </div>
+                    </div><!-- fecha busca ativa-->
+                    <!-- Encerramento -->
+                    <div class="tab-pane fade" id="tab8default">
+                                <legend>Encerramento</legend>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="row">
+                                        <div class="col-sm-12">
+                                            <input id="add_row1" type="checkbox" id="Sintoma01"> <b>Dados Oficiais</b>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <legend></legend>
+                                    <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="checkbox" id="Sintoma01"> <b>Dengue</b>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="checkbox" id="Sintoma02"> <b>Chikungunya</b>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="checkbox" id="Sintoma03"> <b>Zika</b>
+                                        </div>
+                                     </div>
+                                    </div>
+                                    <legend></legend>
+                                    <div class="form-group">
+                                        <div class="row">
+                                        <label class="col-sm-3 control-label" for="NomeMaeSus">Situação Final: </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control col-sm-2" name="EndResLoc" id="EndResLoc">
+                                                <option>Selecione</option>
+                                                <option value="01">E-Esquerda</option>
+                                                <option value="01">C-Central</option>
+                                                <option value="01">D-Direta</option>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <div class="row">
+                                        <label class="col-sm-3 control-label" for="NomeMaeSus">Origem: </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control col-sm-2" name="EndResLoc" id="EndResLoc">
+                                                <option>Selecione</option>
+                                                <option value="01">E-Esquerda</option>
+                                                <option value="01">C-Central</option>
+                                                <option value="01">D-Direta</option>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                        <label class="col-sm-3 control-label" for="NomeSuspeito">Data de Encerramento: </label>
+                                        <div class="col-sm-6">
+                                            <input type="date" class="form-control" name="NomeSuspeito" id="NomeSuspeito" placeholder="" required="required">
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div align="center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default glyphicon glyphicon-hand-left">
+                                    Voltar para Busca Ativa</button>
+                                <button type="button" class="btn btn-default glyphicon glyphicon-floppy-saved">
+                                    Salvar e Finalizar Cadastro deste Suspeito</button>
+                            </div>
+                        </div>
+                    </div><!-- fecha encerramento-->
+                </div><!-- fecha tab content-->
+            </div><!-- fecha panel body -->
+        </div><!-- fecha panel com painel navegaveis-->
+    } <!-- fecha form-->
 }
