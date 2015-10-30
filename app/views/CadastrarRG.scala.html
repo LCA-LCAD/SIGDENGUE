@@ -1,0 +1,204 @@
+@(formRG: Form[RG])
+@import helper._
+
+@main("RG") {
+    <script src="@routes.Assets.at("javascripts/ol.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/mapa.js")" type="text/javascript"></script>
+    @helper.form(action = routes.Application.novoRG) {
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <legend>RG</legend>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <br>
+
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-9">
+                                    <input type="checkbox"><b> Georreferenciamento Inconsistente</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <br>
+                                <label class="col-sm-3 control-label" for="MuniLoc">Localidade </label>
+
+                                <div class="col-sm-4">
+                                    <select class="form-control" id="selLoc">
+                                        <option>Selecione a localidade</option>
+                                        <option>01 - UNIVERSITÁRIO</option>
+                                        <option>02 - SÃO PAULO</option>
+                                        <option>03 - CANADÁ</option>
+                                        <option>04 - QUEBEC</option>
+                                    </select>
+                                </div>
+                                <label class="col-sm-2 control-label" for="MuniLoc">Nº do
+                                    Quarteirão: </label>
+
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control" name="NomeSusp" id="NomeSusp"
+                                    placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="MuniLoc">
+                                    Clique sobre o lote ou
+                                    digite:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" name="NomeSusp" id="NomeSusp"
+                                    placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12"> </div>
+                        <div class="col-md-7">
+                            <div id="map" class="map">
+                                <br><span style="font-size : x-small">Atualizado 23/04/2015</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">Informações:</div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4" for="Logradouro">
+                                            Logradouro:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="rua" class="form-control" name="Logradouro" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="num">nº:</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" id="numero" class="form-control"
+                                            " name="num" disabled="disabled">
+                                        </div>
+                                   </form>     </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="TipImo">
+                                            Tipo de Imóvel:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="tipo" name="TipImo" value="Residencial" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="Sequencial">
+                                            Sequencial:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" name="Sequencial" value="2">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="Complemento">Complemento:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" name="Complemento" value="2">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" for="Lado">Lado:</label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" name="Lado" value="2">
+                                        </div>
+                                    </div>
+                                    <div align="center">
+                                        <a href="#" type="btn" class="btn btn-danger control-label">
+                                            Alterar</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#SolAlt" type="button" class="btn btn-primary right">
+                                Solicitar Alteração
+                            </a>
+                        </div>
+                        <div id="SolAlt" class="modalDialog">
+                            <a href="#close" title="Close" class="closes">X</a>
+
+                            <div class="panel-body">
+                                <legend>Solicitação de Alteração</legend>
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="Logradouro">
+                                                Logradouro:</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" readonly="readonly" value="Parana" class="form-control" name="logradouro">
+                                            </div>
+                                            <label class="col-sm-1 control-label" for="num">
+                                                nº</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" readonly="readonly" value="987" class="form-control" name="num">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="MuniLoc">
+                                                    Tipo de Imóvel:</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control" id="selLoc">
+                                                        <option>Selecione o tipo de Imovel</option>
+                                                        <option>Residencial</option>
+                                                        <option>Comercio</option>
+                                                        <option>Serviço</option>
+                                                        <option>Lazer</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="MuniLoc">
+                                                    Agente:</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-control">
+                                                        <option>Selecionar...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class>
+                                                <label class="col-sm-3 control-label" for="DataExec">
+                                                    Data</label>
+
+                                                <div class="col-sm-4">
+                                                    <input type="date" name="DataExec" value="2011-09-29" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label" for="Excluir">
+                                                    Observação</label>
+
+                                                <div class="col-sm-8">
+                                                    <textarea class="form-control" name="Descric" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div align="center">
+                                                <div class="btn-group" role="group" aria-label="...">
+                                                    <button type="button" class="btn btn-default">
+                                                        Cancelar</button>
+                                                    <button type="button" class="btn btn-default">
+                                                        Enviar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+}

@@ -1,0 +1,40 @@
+@()
+
+<script type="text/javascript">
+                        var form = document.getElementById('testForm');
+
+                        try {
+                            form.addEventListener("submit", submitFn, false);
+                        } catch(e) {
+                            form.attachEvent("onsubmit", submitFn); //IE8
+                        }
+                        function submitFn(event) {
+                            event.preventDefault();
+                            var resultado = document.getElementById("checkedStr");
+                            var boxes = document.getElementsByClassName('checkbox');
+                            var checked = [];
+                            for(var i=0; boxes[i]; ++i){
+                              if(boxes[i].checked){
+                                checked.push(boxes[i].name);
+                              }
+                            }
+
+                            var checkedStr = checked.join();
+
+                            resultado.setAttribute("value",checkedStr);
+
+                            return false;
+                        }
+                    </script>
+<legend>Selecione o(s) dia(s) que se encontra neste endereço: </legend>
+<form id="testForm">
+    <input class="checkbox" name="segunda" type="checkbox">
+    <input class="checkbox" name="terça" type="checkbox">
+    <input class="checkbox" name="quarta" type="checkbox">
+    <input class="checkbox" name="quinta" type="checkbox">
+    <input class="checkbox" name="sexta" type="checkbox">
+    <input class="checkbox" name="sábado" type="checkbox">
+    <input class="checkbox" name="domingo" type="checkbox">
+    <button>Send</button>
+    <label>Resultado <input type="text" name="checkedStr" id="checkedStr"/></label>
+</form>

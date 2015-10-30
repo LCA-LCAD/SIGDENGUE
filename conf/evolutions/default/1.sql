@@ -24,6 +24,13 @@ create table endereco (
   constraint pk_endereco primary key (id))
 ;
 
+create table rg (
+  n_lote                    integer not null,
+  localidade                varchar(255),
+  n_quart                   integer,
+  constraint pk_rg primary key (n_lote))
+;
+
 create table suspeito (
   numero_busca              integer not null,
   numero_notificacao        integer,
@@ -46,6 +53,8 @@ create sequence cupom_desconto_seq;
 
 create sequence endereco_seq;
 
+create sequence rg_seq;
+
 create sequence suspeito_seq;
 
 alter table endereco add constraint fk_endereco_suspeito_1 foreign key (suspeito_numero_busca) references suspeito (numero_busca);
@@ -59,11 +68,15 @@ drop table if exists cupom_desconto cascade;
 
 drop table if exists endereco cascade;
 
+drop table if exists rg cascade;
+
 drop table if exists suspeito cascade;
 
 drop sequence if exists cupom_desconto_seq;
 
 drop sequence if exists endereco_seq;
+
+drop sequence if exists rg_seq;
 
 drop sequence if exists suspeito_seq;
 

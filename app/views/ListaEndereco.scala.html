@@ -1,0 +1,50 @@
+@(enderecos: List[Endereco])
+
+@main("Lista de Endereços") {
+    <div class="panel with-nav-tabs panel-default">
+        <div class="panel-heading">
+            <ul class="nav nav-tabs">
+                <li><a href="@routes.Application.CadastrarSuspeito()" class="btn icon-btn">Suspeito</a></li>
+                <li class="active"><a href="#tab2default" class="btn icon-btn">Endereços</a></li>
+                <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Viagens</a></li>
+                <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Atend. Clinico</a></li>
+                <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Sintomas</a></li>
+                <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Dados Laboratoriais</a></li>
+                <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Busca Ativa</a></li>
+                <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Encerramento</a></li>
+            </ul>
+        </div>
+        @if(enderecos.isEmpty){
+            <h3>Não há nenhum endereço  cadastrado para este suspeito.</h3>
+        }else{
+            <legend>Endereços Cadastros:</legend>
+            <table>
+                <tr>
+                    <th>Tipo Endereço</th>
+                    <th>Logradouro</th>
+                    <th>Numero</th>
+                    <th>geoInconsistente</th>
+                    <th>numeroQuarteirao</th>
+                    <th>tempoPermanencia</th>
+                    <th>Dias Semana</th>
+                    <th>Turnos</th>
+
+                </tr>
+                @for(endereco <- enderecos){
+                    <tr>
+                        <td>@endereco.getTipo</td>
+                        <td>@endereco.getLogradouro</td>
+                        <td>@endereco.getNumero</td>
+                        <td>@endereco.isGeoInconsistente</td>
+                        <td>@endereco.getNumeroQuarteirao</td>
+                        <td>@endereco.getTempoPermanencia</td>
+                        <td>@endereco.getDiasSemana</td>
+                        <td>@endereco.getTurnos</td>
+                    </tr>
+                }
+            </table>
+        }
+        <hr>
+        <a class="btn icon-btn btn-primary" href="@routes.Application.CadastrarEndSuspeito()"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-sucess"></span>Cadastrar novo endereço</a>
+    </div>
+}

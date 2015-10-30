@@ -26,73 +26,78 @@
                     <img src="../assets/SIGDENGUE_web.png">
                 </div>
                     <!-- INÍCIO DA BARRA DE NAVEGAÇÃO-->
-                <nav class="row">
-                    <ul class="nav nav-tabs">
-                        <li><a href="#">Início</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Suspeito<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="@routes.Application.CadastrarSuspeito()">Cadastrar</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Listar</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agentes<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agentes</a>
-                                    <ul>
-                                        <li><a href="@routes.Application.CadastrarSuspeito()">Cadastrar</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Listar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="#">Cargos</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Equipes</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Disp. Móveis</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Cursos</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Atividades<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Raio</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Bloqueio</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Ponto Estratégico</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">RG</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">LiraA</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Ação/Mutirão</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Tratamento Especial</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Tratamento</a></li>
-                            </ul>
-                        </li>
-                        <li class="divider"><a href="#">Entomologia</a></li>
-                        <li class="divider"><a href="#">SisPNCD</a></li>
-                        <li class="divider"><a href="#">Produtividade</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Visualização<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Relatórios</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Mapas</a></li>
-                            </ul>
-                        </li>
-                        <li class="divider"><a href="#">Configuração</a></li>
-                        <li class="divider"><a href="#">Disp Móveis</a></li>
-                        <li class="divider"><a href="#">Inf. Pessoal</a></li>
-                    </ul>
+                <nav role="navigation" class="navbar navbar-default row">
+                    <div class="navbar-header">
+                        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                            <span class="sr-only">Navegação Responsiva</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbarCollapse" class="collapse navbar-collapse">
+                        <ul class="navbar-nav nav menu_principal" id="horizontal-style">
+                            <li class="active"><a href="#">Início</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Suspeito<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Cadastrar</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Listar</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Agentes<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Agentes</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Cargos</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Equipes</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Disp. Móveis</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Cursos</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Atividades<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Raio</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Bloqueio</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Ponto Estratégico</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">RG</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">LiraA</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Ação / Mutirão</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Tratamento Especial</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Tratamento</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Armadilhas</a></li>
+                                </ul>
+                            </li>
+                            <li class="divider"><a href="#">Entomologia</a></li>
+                            <li class="divider"><a href="#">SisPNCD</a></li>
+                            <li class="divider"><a href="#">Produtividade</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Visualização<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Relatórios</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Mapas</a></li>
+                                </ul>
+                            </li>
+                            <li class="divider"><a href="#">Configuração</a></li>
+                            <li class="divider"><a href="#">Disp. Móveis</a></li>
+                            <li class="divider ultimo"><a href="#" class="ultimo">Inf. Pessoal</a></li>
+                        </ul>
+                    </div>
                 </nav>
             </header>
                 <!-- FIM DA BARRA DE NAVEGAÇÃO-->

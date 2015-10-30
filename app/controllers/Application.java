@@ -3,6 +3,7 @@ package controllers;
 import com.avaje.ebean.Ebean;
 import models.CupomDesconto;
 import models.Endereco;
+import models.RG;
 import models.Suspeito;
 import play.*;
 import play.data.Form;
@@ -27,6 +28,11 @@ public class Application extends Controller {
     public static Result formularioNovoCupom(){
         Form<CupomDesconto> form = Form.form(CupomDesconto.class);
         return ok(formularioNovoCupom.render(form));
+    }
+
+    public static Result novoRG(){
+        Form<RG> formRG = Form.form(RG.class);
+        return ok(CadastrarRG.render(formRG));
     }
 
     public static Result novoCupom() {

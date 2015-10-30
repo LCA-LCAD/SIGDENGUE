@@ -1,0 +1,175 @@
+@(formEndSuspeito: Form[Endereco], suspeitos: List[Suspeito])
+@import helper._
+
+@main("Cadastrar Endereço") {
+    @helper.form(action = routes.Application.CadastrarEndSuspeito) {
+        <legend>Cadastrar Suspeitos de Dengue</legend>
+
+        <div class="panel with-nav-tabs panel-default">
+            <div class="panel-heading">
+                <ul class="nav nav-tabs">
+                    <li><a href="#tab1default" class="btn icon-btn">Suspeito</a></li>
+                    <li class="active"><a href="#tab2default" class="btn icon-btn">Endereços</a></li>
+                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Viagens</a></li>
+                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Atend. Clinico</a></li>
+                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Sintomas</a></li>
+                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">
+                        Dados Laboratoriais</a></li>
+                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Busca Ativa</a></li>
+                    <li><a href="@routes.Application.formularioNovoCupom()" class="btn icon-btn">Encerramento</a></li>
+                </ul>
+            </div>
+
+            <div class="panel-body">
+                <div class="content">
+                    <legend>Cadastrar Endereços para o Suspeito de Dengue</legend>
+                    <div class="form-group">
+                        <div class="row">
+                            <label class="col-sm-3 control-label" for="Selecione o numero de busca do suspeito:">
+                                Tipo do Endereço: </label>
+                            <div class="col-sm-9">
+                                <select class="form-control col-sm-9" name="numeroBusca" id="numeroBusca">
+                                    <option>Selecione</option>
+                                    @for(suspeito <- suspeitos) {
+                                        <option value=@suspeito.getNumeroBusca>@suspeito.getNumeroBusca</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="tipo">Tipo do Endereço: </label>
+                                <div class="col-sm-9">
+                                    <select class="form-control col-sm-9" name="tipo" id="tipo">
+                                        <option>Selecione</option>
+                                        <option value="Endereço Residencial">Endereço Residencial</option>
+                                        <option value="Endereço de Trabalho">Endereço de Trabalho</option>
+                                        <option value="Endereço de Estudor">Endereço de Estudo</option>
+                                        <option value="Endereço de Lazer">Endereço de Lazer</option>
+                                        <option value="Outro Endereço">Outro Endereço</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="numero">Logradouro: </label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" required="required" name="logradouro" id="logradouro" placeholder=""/>
+                                </div>
+                                <label class="col-sm-3 control-label" for="numero">Número: </label>
+                                <div class="col-sm-3">
+                                    <div class="input-group custom-search-form">
+                                        <input type="number" class="form-control" name="numero" id="numero">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">
+                                                <span class="glyphicon glyphicon-search"></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <input class="col-sm-2 control-label" type="checkbox" id="geoInconsistente">
+                                Georreferenciamento Inconsistente
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="numeroQuarteirao">nº do Quarteirão: </label>
+                                <div class="col-sm-3">
+                                    <input type="number" class="form-control" name="numeroQuarteirao" id="numeroQuarteirao" placeholder=""/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12 control-label" id="Loc">Localidade: </label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12 control-label" id="Loc">Loteamento: </label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12 control-label" id="Loc">Quadra: </label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <label class="col-sm-12 control-label" id="Loc">Lote: </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="tempoPermanencia">
+                                    Tempo de Permanência: </label>
+                                <div class="col-sm-3">
+                                    <input type="time" class="form-control" name="tempoPermanencia" id="tempoPermanencia" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <legend>Selecione o(s) dia(s) que se encontra neste endereço: </legend>
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Segunda" class="diasSemana"> <b>Segunda-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Terça" class="diasSemana"> <b>Terça-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Quarta" class="diasSemana"> <b>Quarta-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Quinta" class="diasSemana"> <b>Quinta-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Sexta" class="diasSemana"> <b>Sexta-Feira</b>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="checkbox" name="Sábado" class="diasSemana"> <b>Sábado</b>
+                            </div>
+                            <div>
+                                <div class="col-sm-12">
+                                    <input type="checkbox" name="Domingo" class="diasSemana"> <b>Domingo</b>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>
+                                    Dias Selecionados <input type="text" class="form-control" name="diasSemana" id="diasSemana"/></label>
+                            </div>
+                            <legend>Selecione o(s) turno(s) que se encontra neste endereço: </legend>
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="Manhã" class="Turnos"> <b>Manhã</b>
+                                </div>                                    </fieldset>
+                                </form>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="Tarde" class="Turnos"> <b>Tarde</b>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="Noite" class="Turnos"> <b>Noite</b>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" name="Madrugada" class="Turnos"> <b>Madrugada</b>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>
+                                    Turnos Selecionados <input type="text" class="form-control" name="Turnos" id="Turnos"/></label>
+                            </div>
+                            <legend></legend>
+                            <div align="center">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-default">< Anterior</button>
+                                    <button type="submit" class="btn btn-default">Salvar</button>
+                                    <button type="button" class="btn btn-default">Próximo ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

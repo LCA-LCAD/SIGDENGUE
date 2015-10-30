@@ -3,13 +3,15 @@
 # ~~~~
 
 # Home page
-GET         /                        controllers.Application.index()
-GET         /cupom/novo              controllers.Application.formularioNovoCupom()
-POST        /cupom/novo              controllers.Application.novoCupom()
-GET         /suspeito/novo           controllers.Application.CadastrarSuspeito()
-POST        /suspeito/novo           controllers.Application.novoSuspeito()
-GET         /suspeito/novoEnd        controllers.Application.CadastrarEndSuspeito()
-POST        /suspeito/novoEnd        controllers.Application.novoEndSuspeito()
-GET         /suspeito/ListaEnd       controllers.Application.ListaEndereco()
+GET         /                         controllers.Application.index()
+GET         /cupom/novo               controllers.Application.formularioNovoCupom()
+POST        /cupom/novo               controllers.Application.novoCupom()
+GET         /suspeito/novo            controllers.Application.CadastrarSuspeito()
+POST        /suspeito/novo            controllers.Application.novoSuspeito()
+GET         /suspeito/novoEnd         controllers.Application.CadastrarEndSuspeito()
+POST        /suspeito/novoEnd         controllers.Application.novoEndSuspeito()
+GET         /suspeito/ListaEnd        controllers.Application.ListaEndereco()
+GET         /RG/novo                  controllers.Application.novoRG()
+
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file            controllers.Assets.at(path="/public", file)
+GET         /assets/*file             controllers.Assets.at(path="/public", file)
